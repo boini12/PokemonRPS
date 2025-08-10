@@ -1,6 +1,7 @@
 # 🔥💧🌱 Rock Paper Scissors: Pokémon Edition (Gen 1)
 
 A fun and nostalgic twist on Rock-Paper-Scissors built with Pygame, featuring first-generation Pokémon as your battle choices!
+
 <img width="483" height="574" alt="PokemonRPS_GameStart" src="https://github.com/user-attachments/assets/6d1faaf7-6138-48cd-a1ff-a5e0c344d483" />
 
 ## 🎮 About the Game
