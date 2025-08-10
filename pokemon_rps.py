@@ -1,8 +1,13 @@
 import pygame, sys
 import random
+from pathlib import Path
 
 from pygame.constants import KEYDOWN
- 
+
+BASE_DIR = Path(__file__).resolve().parent
+IMAGES_DIR = BASE_DIR / "assets" / "images"
+AUDIO_DIR = BASE_DIR / "assets" / "audio"
+
 pygame.init()
 
 FPS = 60
@@ -16,7 +21,7 @@ WHITE = (255, 255, 255)
 TRANSPARENT = (0, 0, 0, 0)
 
 DISPLAYSURF = pygame.display.set_mode((400,500))
-bg = pygame.image.load("grass.png")
+bg = pygame.image.load(IMAGES_DIR / "grass.png")
 bg = pygame.transform.scale(bg, (400, 500))
 DISPLAYSURF.blit(bg, (0,0))
 
@@ -26,19 +31,19 @@ class Text_Overlay(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         #convert_alpha gets rid of the black background of the image
-        self.player_win = pygame.image.load("win.png").convert_alpha()
+        self.player_win = pygame.image.load(IMAGES_DIR / "win.png").convert_alpha()
         self.player_win = pygame.transform.scale(self.player_win, (250, 100))
 
-        self.ai_win = pygame.image.load("AI_win.png").convert_alpha()
+        self.ai_win = pygame.image.load(IMAGES_DIR / "AI_win.png").convert_alpha()
         self.ai_win = pygame.transform.scale(self.ai_win, (250, 100))
 
-        self.start = pygame.image.load("start.png").convert_alpha()
+        self.start = pygame.image.load(IMAGES_DIR / "start.png").convert_alpha()
         self.start = pygame.transform.scale(self.start, (250, 100))
 
-        self.draw = pygame.image.load("draw.png").convert_alpha()
+        self.draw = pygame.image.load(IMAGES_DIR / "draw.png").convert_alpha()
         self.draw = pygame.transform.scale(self.draw, (250, 100))
 
-        self.restart = pygame.image.load("restart.png").convert_alpha()
+        self.restart = pygame.image.load(IMAGES_DIR / "restart.png").convert_alpha()
         self.restart = pygame.transform.scale(self.restart, (370, 85))
         
         self.player_win_rect = self.player_win.get_rect(topleft =(75, 180))
@@ -80,13 +85,13 @@ class Enemy(pygame.sprite.Sprite):
         super().__init__() 
         #load character sprites
         #Blatt
-        self.image1 = pygame.image.load("001.png").convert()
+        self.image1 = pygame.image.load(IMAGES_DIR / "bulbasaur_front.png").convert()
         #Feuer
-        self.image2 = pygame.image.load("004.png").convert()
+        self.image2 = pygame.image.load(IMAGES_DIR / "charmander_front.png").convert()
         #Wasser
-        self.image3 = pygame.image.load("007.png").convert()  
+        self.image3 = pygame.image.load(IMAGES_DIR / "squirtle_front.png").convert()  
         #trainer
-        self.trainer = pygame.image.load("bugsy.png").convert()
+        self.trainer = pygame.image.load(IMAGES_DIR / "bugsy.png").convert()
         #set inital positions 
         self.rect1 = self.image1.get_rect(topleft=(210, 50))
         self.rect2 = self.image2.get_rect(topleft=(240, 50))
@@ -126,11 +131,11 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__() 
         #Blatt
-        self.image1 = pygame.image.load("001_back.png").convert()
+        self.image1 = pygame.image.load(IMAGES_DIR / "bulbasaur_back.png").convert()
         #Feuer
-        self.image2 = pygame.image.load("004_back.png").convert()
+        self.image2 = pygame.image.load(IMAGES_DIR / "charmander_back.png").convert()
         #Wasser
-        self.image3 = pygame.image.load("007_back.png").convert()
+        self.image3 = pygame.image.load(IMAGES_DIR / "squirtle_back.png").convert()
         #set inital positions 
         self.rect1 = self.image1.get_rect()
         self.rect1.center = (75, 370)
@@ -157,7 +162,7 @@ class Player(pygame.sprite.Sprite):
           self.rect3 = self.image3.get_rect(bottomright=(180, 340))
 
 pygame.mixer.init()
-file_start = 'battle_start.mp3'
+file_start = AUDIO_DIR / 'battle_start.mp3'
 music_start = pygame.mixer.music.load(file_start)
 def start_music():
     music_start
