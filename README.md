@@ -39,9 +39,10 @@ Charmander (Fire) beats Bulbasaur (Grass)
     ```
 
 
+## Preview
+![ezgif-6b5bd92c34e9deea](https://github.com/user-attachments/assets/fbe845a7-8235-4ab4-98e4-def200421616)
+
 ### 📜 License
 This project is open source under the MIT License.
 Note: Pokémon images and names are © Nintendo, Game Freak, and The Pokémon Company. This project is a fan-made game and is not affiliated with or endorsed by the official Pokémon brand. All assets are used under fair use for educational/non-commercial purposes.
 
-### 🙌 Credits
-Made with 🧡 by [Ines](https://github.com/boini12)
